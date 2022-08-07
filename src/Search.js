@@ -13,7 +13,11 @@ class Search extends Component {
     constructor(props) {
         super(props);
         const currentYear = new Date().getFullYear();
-        this.state = { searchQuery: "Spider-Man", searchYear: currentYear };
+        this.state = {
+            searchQuery: "Spider-Man",
+            searchYear: currentYear,
+            maxYear: currentYear + 1,
+        };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -86,7 +90,7 @@ class Search extends Component {
                                 id="searchYear"
                                 aria-describedby="yearHelp"
                                 min="1961"
-                                max="2099"
+                                max={this.state.maxYear}
                                 step="1"
                                 required
                             />
