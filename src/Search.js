@@ -56,41 +56,43 @@ class Search extends Component {
                 <h1>Marvel API</h1>
                 <script src="js/bootstrap.min.js"></script>
                 <form onSubmit={this.handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="searchQuery" className="form-label">
-                            Search
-                        </label>
-                        <input
-                            value={this.state.searchQuery}
-                            onChange={this.handleChange}
-                            type="text"
-                            className="form-control"
-                            id="searchQuery"
-                            aria-describedby="queryHelp"
-                            required
-                        />
-                        <div id="queryHelp" className="form-text">
-                            Search for a comic series.
+                    <div className="row mb-3">
+                        <div className="col">
+                            <label htmlFor="searchQuery" className="form-label">
+                                Search
+                            </label>
+                            <input
+                                value={this.state.searchQuery}
+                                onChange={this.handleChange}
+                                type="text"
+                                className="form-control"
+                                id="searchQuery"
+                                aria-describedby="queryHelp"
+                                required
+                            />
+                            <div id="queryHelp" className="form-text">
+                                Search for a comic series.
+                            </div>
                         </div>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="searchYear" className="form-label">
-                            Year
-                        </label>
-                        <input
-                            value={this.state.searchYear}
-                            onChange={this.handleChange}
-                            type="number"
-                            className="form-control"
-                            id="searchYear"
-                            aria-describedby="yearHelp"
-                            min="1961"
-                            max="2099"
-                            step="1"
-                            required
-                        />
-                        <div id="yearHelp" className="form-text">
-                            Include a year.
+                        <div className="col-3">
+                            <label htmlFor="searchYear" className="form-label">
+                                Year
+                            </label>
+                            <input
+                                value={this.state.searchYear}
+                                onChange={this.handleChange}
+                                type="number"
+                                className="form-control"
+                                id="searchYear"
+                                aria-describedby="yearHelp"
+                                min="1961"
+                                max="2099"
+                                step="1"
+                                required
+                            />
+                            <div id="yearHelp" className="form-text">
+                                Include a year.
+                            </div>
                         </div>
                     </div>
                     <div className="d-grid gap-2">
