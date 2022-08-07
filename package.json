@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/Karl-Horning/marvel-api/issues"
   },
-  "homepage": "https://github.com/Karl-Horning/marvel-api#readme",
+  "homepage": ".",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
