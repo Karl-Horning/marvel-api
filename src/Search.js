@@ -12,11 +12,12 @@ const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
 class Search extends Component {
     constructor(props) {
         super(props);
+        const currentYear = new Date().getFullYear();
+        this.state = { searchQuery: "Spider-Man", searchYear: currentYear };
+        this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-    async getComics() {
-        const searchTitle = "Spider-Man";
-        const searchYear = 2022;
+    async getComics(searchTitle, searchYear) {
         // API GET requirements
         const ts = Number(new Date());
         const hash = MD5(ts + PRIVATE_KEY + PUBLIC_KEY).toString();
@@ -38,9 +39,16 @@ class Search extends Component {
             console.error(error);
         }
     }
+    handleChange(e) {
+        const target = e.target;
+        const elId = target.id;
+        this.setState({
+            [elId]: target.value,
+        });
+    }
     handleSubmit(e) {
         e.preventDefault();
-        this.getComics();
+        this.getComics(this.state.searchQuery, this.state.searchYear);
     }
     render() {
         return (
@@ -49,13 +57,15 @@ class Search extends Component {
                 <script src="js/bootstrap.min.js"></script>
                 <form onSubmit={this.handleSubmit}>
                     <div className="mb-3">
-                        <label htmlFor="q" className="form-label">
+                        <label htmlFor="searchQuery" className="form-label">
                             Search
                         </label>
                         <input
+                            value={this.state.searchQuery}
+                            onChange={this.handleChange}
                             type="text"
                             className="form-control"
-                            id="q"
+                            id="searchQuery"
                             aria-describedby="queryHelp"
                             required
                         />
@@ -68,6 +78,8 @@ class Search extends Component {
                             Year
                         </label>
                         <input
+                            value={this.state.searchYear}
+                            onChange={this.handleChange}
                             type="number"
                             className="form-control"
                             id="searchYear"
