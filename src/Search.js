@@ -63,7 +63,7 @@ class Search extends Component {
                     <div className="row mb-3">
                         <div className="col">
                             <label htmlFor="searchQuery" className="form-label">
-                                Search
+                                Series Name
                             </label>
                             <input
                                 value={this.state.searchQuery}
@@ -75,7 +75,7 @@ class Search extends Component {
                                 required
                             />
                             <div id="queryHelp" className="form-text">
-                                Search for a comic series.
+                                Search for a comic series, for example: Symbiote Spider-Man
                             </div>
                         </div>
                         <div className="col-3">
@@ -95,7 +95,7 @@ class Search extends Component {
                                 required
                             />
                             <div id="yearHelp" className="form-text">
-                                Include a year.
+                                Include a year in the format YYYY
                             </div>
                         </div>
                     </div>
